@@ -3,7 +3,7 @@
  * @Author: yangsen
  * @Date: 2023-03-13 20:31:46
  * @LastEditors: yangsen
- * @LastEditTime: 2023-03-14 16:58:57
+ * @LastEditTime: 2023-03-14 17:47:24
 -->
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -148,12 +148,20 @@
     <div id="bigLineEnd"></div>
   </div>
   <div id="note">
-    <p>实现思路:</p>
-    <p>1.确定坐标系:
-      div元素使用定位布局确定坐标系,svg画布自身有坐标系(重点是确定两个坐标系的转换关系,可以在dom元素上增加一个wordCoordinate属性用于记录每个元素在页面中的位置(还可进一步用proxy封装侦听dom元素定位属性的变化,自动维护wordCoordinate的值))
-    </p>
-    <p>2.引入图层的概念: div盒模型是一个图层, svg画布是一个图层</p>
-    <p>3.svg画图:使用三次贝塞尔曲线画图; 监听鼠标按下拖动事件, 动态改变path元素的d属性</p>
+    <div>
+      <p>实现思路:</p>
+      <p>1.确定坐标系:
+        div元素使用定位布局确定坐标系,svg画布自身有坐标系(重点是确定两个坐标系的转换关系,可以在dom元素上增加一个wordCoordinate属性用于记录每个元素在页面中的位置(还可进一步用proxy封装侦听dom元素定位属性的变化,自动维护wordCoordinate的值))
+      </p>
+      <p>2.引入图层的概念: div盒模型是一个图层, svg画布是一个图层</p>
+      <p>3.svg画图:使用三次贝塞尔曲线画图; 监听鼠标按下拖动事件, 动态改变path元素的d属性</p>
+    </div>
+    <div>
+      <p>操作方式:</p>
+      <p>鼠标点击右侧的div, 出现一条线端; 鼠标按下拖动线段的终点连接到左侧的div上,当鼠标在左侧div锚点附近时,锚点高亮
+      </p>
+    </div>
+
   </div>
   <script>
     const innerContainer = document.getElementById("innerContainer");
