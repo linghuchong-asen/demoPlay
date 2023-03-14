@@ -1,0 +1,1 @@
+{"version":3,"file":"CircleGeometry.d.ts","sourceRoot":"","sources":["../../../../src/geometries/CircleGeometry.ts"],"names":[],"mappings":"AAQA,OAAO,EAAE,cAAc,EAAmC,OAAO,EAAE,MAAM,OAAO,CAAC;AAEjF,cAAM,cAAe,SAAQ,cAAc;IACzC,QAAQ,EAAE,OAAO,CAAC;gBACN,MAAM,oBAAI,EAAE,QAAQ,oBAAI,EAAE,UAAU,oBAAI,EAAE,WAAW,oBAAc,EAAE,QAAQ,EAAE,OAAO;CA2DnG;AAED,OAAO,EAAE,cAAc,EAAE,CAAC"}

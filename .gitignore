@@ -1,0 +1,9 @@
+*.glb
+*.gltf
+*.obj
+*.fbx
+*.mtl
+*.gz
+*.7z
+node_modules/
+dist/

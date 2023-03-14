@@ -1,0 +1,1 @@
+{"version":3,"file":"PolygonMaterial.d.ts","sourceRoot":"","sources":["../../../../src/material/PolygonMaterial.ts"],"names":[],"mappings":"AASA,OAAO,EAAE,KAAK,EAAE,MAAM,cAAc,CAAC;AAsBrC,cAAM,eAAe;IACnB,QAAQ,EAAE,GAAG,CAAC;gBACF,KAAK,EAAE,KAAK,EAAE,MAAM,GAAE,MAAU;IAS5C,OAAO,CAAC,sBAAsB;IAqD9B,OAAO,CAAC,cAAc;CAKvB;AAID,OAAO,EAAE,eAAe,EAAE,CAAC"}

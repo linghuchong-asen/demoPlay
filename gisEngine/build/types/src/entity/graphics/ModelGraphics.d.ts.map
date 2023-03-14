@@ -1,0 +1,1 @@
+{"version":3,"file":"ModelGraphics.d.ts","sourceRoot":"","sources":["../../../../../src/entity/graphics/ModelGraphics.ts"],"names":[],"mappings":"AAOA,UAAU,kBAAkB;IAC1B,GAAG,EAAE,MAAM,CAAC;CACb;AACD,cAAM,aAAa;IACjB,GAAG,EAAE,MAAM,CAAC;gBAEA,KAAK,EAAE,kBAAkB;CAGtC;AAED,OAAO,EAAE,aAAa,EAAE,CAAC"}

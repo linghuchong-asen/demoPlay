@@ -1,0 +1,1 @@
+{"version":3,"file":"RectangleGeometry.d.ts","sourceRoot":"","sources":["../../../../src/geometries/RectangleGeometry.ts"],"names":[],"mappings":"AAOA,OAAO,EAAE,cAAc,EAA0B,OAAO,EAAE,MAAM,OAAO,CAAC;AAExE,cAAM,iBAAkB,SAAQ,cAAc;gBAChC,MAAM,EAAE,OAAO,EAAE,WAAW,EAAE,OAAO,EAAE,aAAa,CAAC,EAAE,MAAM,EAAE,cAAc,CAAC,EAAE,MAAM;CA0DnG;AAED,OAAO,EAAE,iBAAiB,EAAE,CAAC"}

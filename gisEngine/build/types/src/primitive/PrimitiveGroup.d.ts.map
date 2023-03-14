@@ -1,0 +1,1 @@
+{"version":3,"file":"PrimitiveGroup.d.ts","sourceRoot":"","sources":["../../../../src/primitive/PrimitiveGroup.ts"],"names":[],"mappings":"AAOA,OAAO,EAAE,QAAQ,EAAwB,MAAM,OAAO,CAAC;AAGvD,eAAO,MAAM,YAAY,EAAE,GAAQ,CAAC;AAEpC,cAAM,cAAe,SAAQ,QAAQ;IACnC,IAAI,EAAE,MAAM,CAAC;;IAMb,MAAM,CAAC,GAAG,EAAE,GAAG;IAYf,OAAO,CAAC,SAAS;CA6HlB;AAED,OAAO,EAAE,cAAc,EAAE,CAAC"}

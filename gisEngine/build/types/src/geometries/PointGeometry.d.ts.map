@@ -1,0 +1,1 @@
+{"version":3,"file":"PointGeometry.d.ts","sourceRoot":"","sources":["../../../../src/geometries/PointGeometry.ts"],"names":[],"mappings":"AAQA,OAAO,EAA0C,OAAO,EAAE,MAAM,OAAO,CAAC;AAExE,cAAM,aAAa;IACjB,QAAQ,EAAE,GAAG,CAAC;IACd,IAAI,EAAE,MAAM,CAAC;;IAKb,SAAS,UAAwB;IACjC,IAAI,QAAQ,IAGQ,OAAO,CAD1B;IACD,IAAI,QAAQ,CAAC,KAAK,EAAE,OAAO,EAG1B;CACF;AACD,OAAO,EAAE,aAAa,EAAE,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"BillboardMaterial.d.ts","sourceRoot":"","sources":["../../../../src/material/BillboardMaterial.ts"],"names":[],"mappings":"AAQA,cAAM,iBAAiB;IACrB,IAAI,EAAE,MAAM,CAAC;IACb,QAAQ,EAAE,GAAG,CAAC;IACd,MAAM,EAAE,MAAM,CAAC;;IAQf,IAAI,KAAK,CAAC,GAAG,EAAE,MAAM,EAIpB;IACD,IAAI,KAAK,IALM,MAAM,CAOpB;CACF;AACD,OAAO,EAAE,iBAAiB,EAAE,CAAC"}

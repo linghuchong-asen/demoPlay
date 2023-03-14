@@ -1,0 +1,1 @@
+{"version":3,"file":"PolylineGeometry.d.ts","sourceRoot":"","sources":["../../../../src/geometries/PolylineGeometry.ts"],"names":[],"mappings":"AAQA,OAAO,EAAE,OAAO,EAAE,MAAM,OAAO,CAAC;AAEhC,cAAM,gBAAgB;IACpB,QAAQ,EAAE,GAAG,CAAC;IACd,IAAI,EAAE,MAAM,CAAC;;IAMb,OAAO,CAAC,IAAI,EAAE,OAAO,EAAE;CASxB;AACD,OAAO,EAAE,gBAAgB,EAAE,CAAC"}

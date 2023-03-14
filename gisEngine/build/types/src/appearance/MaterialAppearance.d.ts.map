@@ -1,0 +1,1 @@
+{"version":3,"file":"MaterialAppearance.d.ts","sourceRoot":"","sources":["../../../../src/appearance/MaterialAppearance.ts"],"names":[],"mappings":"AAOA,OAAO,EAAE,UAAU,EAAE,MAAM,yBAAyB,CAAC;AAErD,UAAU,OAAO;IACf,QAAQ,EAAE,GAAG,CAAC;CACf;AACD,cAAM,kBAAmB,SAAQ,UAAU;IACzC,QAAQ,EAAE,GAAG,CAAC;gBACF,OAAO,EAAE,OAAO;CAI7B;AACD,OAAO,EAAE,kBAAkB,EAAE,CAAC"}

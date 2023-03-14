@@ -1,0 +1,1 @@
+{"version":3,"file":"LabelGeometry.d.ts","sourceRoot":"","sources":["../../../../src/geometries/LabelGeometry.ts"],"names":[],"mappings":"AAOA,OAAO,EAAE,OAAO,EAAE,MAAM,OAAO,CAAC;AAChC,cAAM,aAAa;IACjB,IAAI,EAAE,MAAM,CAAC;IACb,QAAQ,EAAE,OAAO,CAAC;IAClB,KAAK,EAAE,OAAO,CAAC;IACf,MAAM,EAAE,OAAO,CAAC;;CAOjB;AACD,OAAO,EAAE,aAAa,EAAE,CAAC"}

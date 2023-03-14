@@ -1,0 +1,219 @@
+<!--
+ * @Description: 两个div盒子之间动态画线
+ * @Author: yangsen
+ * @Date: 2023-03-13 20:31:46
+ * @LastEditors: yangsen
+ * @LastEditTime: 2023-03-14 16:23:20
+-->
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #divContainer {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      user-select: none;
+    }
+
+    #svgGraph {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 1px solid #bfbfbf;
+    }
+
+    #innerContainer {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: 400px;
+      border: 1px solid #C9C9C9;
+      background-color: #D8D8D8;
+    }
+
+    #div1,
+    #div2 {
+      position: absolute;
+      width: 100px;
+      height: 40px;
+      background-color: #525252;
+      text-align: center;
+      line-height: 40px;
+    }
+
+    #div1 {
+      top: 70px;
+    }
+
+    #div2 {
+      top: 120px;
+    }
+
+    #rightDiv {
+      position: absolute;
+      left: 300px;
+      top: 20px;
+      width: 100px;
+      height: 100px;
+      background-color: #D8D8D8;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    #div1Circle,
+    #div2Circle {
+      position: absolute;
+      top: 15px;
+      left: 80px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid #D8D8D8;
+    }
+
+    #divCircle {
+      position: absolute;
+      top: 45px;
+      left: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #525252;
+    }
+
+    #lineEnd {
+      position: absolute;
+      top: 65px;
+      left: 240px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid #1890ff;
+    }
+
+    #bigLineEnd {
+      position: absolute;
+      top: 25px;
+      left: 200px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 1px solid transparent;
+    }
+
+    #note {
+      position: absolute;
+      top: 500px;
+      left: 20px;
+      width: 1200px;
+    }
+  </style>
+</head>
+
+<body>
+  <svg id="svgGraph">
+    <path id="curve" d="M 310 70 H 260" stroke="#969696" stroke-dasharray="5,3" stroke-width="1" fill="transparent"
+      marker-end="url(#arrowhead)" />
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto" fill="#969696">
+        <polygon points="0 0, 10 3.5, 0 7" />
+      </marker>
+    </defs>
+  </svg>
+  <div id="divContainer">
+    <div id="innerContainer">
+      <div id="div1">div1
+        <div id="div1Circle"></div>
+      </div>
+      <div id="div2">div2
+        <div id="div2Circle"></div>
+      </div>
+    </div>
+    <div id="rightDiv">div
+      <div id="divCircle"></div>
+    </div>
+    <div id="lineEnd"></div>
+    <div id="bigLineEnd"></div>
+  </div>
+  <div id="note">
+    <p>实现思路:</p>
+    <p>1.确定坐标系: div元素使用定位布局确定坐标系,svg画布自身有坐标系(重点是确定两个坐标系的转换关系,我这版demo直接将两个坐标系的原点重合了;
+      如果不重合,可以在dom元素上增加一个wordCoordinate属性用于记录每个元素在页面中的位置(还可进一步用proxy封装侦听dom元素定位属性的变化,自动维护wordCoordinate的值))</p>
+    <p>2.引入图层的概念: div盒模型是一个图层, svg画布是一个图层</p>
+    <p>3.svg画图:使用三次贝塞尔曲线画图; 监听鼠标按下拖动事件, 动态改变path元素的d属性</p>
+  </div>
+  <script>
+    const innerContainer = document.getElementById("innerContainer");
+    const div1 = document.getElementById("div1")
+    const div2 = document.getElementById("div2");
+    const div1Circle = document.getElementById("div1Circle");
+    const div2Circle = document.getElementById("div2Circle")
+    const rightDiv = document.getElementById('rightDiv')
+    const lineEnd = document.getElementById("lineEnd");
+    const bigLineEnd = document.getElementById("bigLineEnd");
+    const curve = document.getElementById('curve');
+    lineEnd.style.display = 'none';
+    curve.style.display = 'none';
+    const innerContainerTop = window.getComputedStyle(innerContainer, null).top;
+    const innerContainerLeft = window.getComputedStyle(innerContainer, null).left;
+    const div1Top = window.getComputedStyle(div1, null).top;
+    const div1Left = window.getComputedStyle(div1, null).left;
+    const div2Top = window.getComputedStyle(div2, null).top;
+    const div2Left = window.getComputedStyle(div2, null).left;
+
+    // 右侧div事件
+    rightDiv.addEventListener('mouseup', function (event) {
+      lineEnd.style.display = 'block';
+      curve.style.display = 'block';
+    })
+
+    // 连线端点拖动事件部分
+    function moveAt(clientX, clientY) {
+      lineEnd.style.left = clientX - lineEnd.offsetWidth / 2 + 'px';
+      lineEnd.style.top = clientY - lineEnd.offsetHeight / 2 + 'px';
+      bigLineEnd.style.left = clientX - bigLineEnd.offsetWidth / 2 + 'px';
+      bigLineEnd.style.top = clientY - bigLineEnd.offsetHeight / 2 + 'px';
+      /* 设置三次贝塞尔曲线路径点控制点 */
+      const path = `M 310 70 C 280 10 ${clientX + 50} ${clientY + 40} ${clientX} ${clientY}`
+      curve.setAttribute('d', path)
+      if (event.clientX > 100 && event.clientX < 110 && event.clientY > 108 && event.clientY < 116) {
+        div1Circle.style.border = '2px solid #eb2f96';
+      } else {
+        div1Circle.style.border = '1px solid #D8D8D8';
+      }
+      if (event.clientX > 100 && event.clientX < 110 && event.clientY > 157 && event.clientY < 165) {
+        div2Circle.style.border = '2px solid #eb2f96';
+      } else {
+        div2Circle.style.border = '1px solid #D8D8D8';
+      }
+    }
+    function onMouseMove(event) {
+      moveAt(event.clientX, event.clientY);
+    }
+    function onMouseDown(event) {
+      bigLineEnd.addEventListener('mousemove', onMouseMove);
+      bigLineEnd.addEventListener('mouseup', function (event) {
+        bigLineEnd.removeEventListener('mousemove', onMouseMove);
+      });
+    }
+    bigLineEnd.addEventListener('mousedown', onMouseDown);
+
+
+
+
+  </script>
+</body>
+
+</html>
